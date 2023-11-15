@@ -42,7 +42,9 @@ Route::post('midtrans/notification/handling', [CallbackController::class, 'callb
 
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('products', ProductController::class);
-   // ->middleware('auth:sanctum');// karena dikasih middleware authsanctum makanya product list butuh auth juga
-
+// ->middleware('auth:sanctum');// karena dikasih middleware authsanctum makanya product list butuh auth juga
 
 Route::apiResource('banners', BannerController::class);
+
+Route::post('fcm-token', [AuthController::class, 'updateFcmToken'])
+    ->middleware('auth:sanctum');
